@@ -10,10 +10,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
@@ -29,7 +26,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 
 class MainActivity : ComponentActivity() {
-    val rep = MarvelRepository()
+    val rep = MarvelApplication.repository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,6 +70,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: List<String?>?) {
+    val rep = MarvelApplication.repository
     Column() {
         name?.let {
             for (n in it) {
@@ -87,8 +85,24 @@ fun Greeting(name: List<String?>?) {
                         modifier = Modifier.height(20.dp),
                         color = Color.Cyan
                     )
+                    /*Button(
+                        modifier = Modifier.background(color = Color.Green),
+                        onClick = {
+                            rep.
+                        }
+                    ){
+                        Text(text = "Open details")
+                    }*/
                 }
             }
+        }
+        Button(
+            modifier = Modifier.background(color = Color.Green),
+            onClick = {
+                rep.
+            }
+        ){
+            Text(text = "Open details")
         }
     }
 }
