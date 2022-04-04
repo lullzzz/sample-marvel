@@ -39,7 +39,6 @@ class ComicCharacterViewModel(private val repository: MarvelRepository) : ViewMo
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                val char = it.data?.results?.map { character -> character.name }
                 characterList.value = it.data
                 attributeText.value = it.attributionText
                 it.data?.let { data ->
