@@ -9,25 +9,25 @@ import com.squareup.moshi.Json
 
 data class ComicCharacter(
     @field:Json(name = "id")
-    val id: Int?,
+    val id: Int? = null,
     @field:Json(name = "name")
-    val name: String?,
+    val name: String? = null,
     @field:Json(name = "description")
-    val description: String?,
+    val description: String? = null,
     @field:Json(name = "modified")
-    val modified: String?,
+    val modified: String? = null,
     @field:Json(name = "resourceUri")
-    val resourceUri: String?,
+    val resourceUri: String? = null,
     @field:Json(name = "urls")
-    val urls: List<DataUrl>?,
+    val urls: List<DataUrl>? = null,
     @field:Json(name = "thumbnail")
-    val thumbnail: DataImage?,
+    val thumbnail: DataImage? = null,
     @field:Json(name = "comics")
-    val comics: ComicList?,
+    val comics: ComicList? = null,
     @field:Json(name = "stories")
-    val stories: StoryList?,
+    val stories: StoryList? = null,
     @field:Json(name = "events")
-    val events: EventList?,
+    val events: EventList? = null,
     @field:Json(name = "series")
-    val series: SeriesList?,
+    val series: SeriesList? = null,
 )

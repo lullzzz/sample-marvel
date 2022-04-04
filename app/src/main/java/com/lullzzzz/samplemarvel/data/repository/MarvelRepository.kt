@@ -32,8 +32,8 @@ class MarvelRepository() {
     }
 
 
-    fun fetchCharactersList(): Observable<CharacterDataWrapper> =
-        api.listCharacters().doOnError {
+    fun fetchCharactersList(offset: Int = 0): Observable<CharacterDataWrapper> =
+        api.listCharacters(offset).doOnError {
             Log.e("TAG", it.stackTraceToString())
         }
 }

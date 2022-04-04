@@ -12,6 +12,7 @@ import retrofit2.http.Query
 interface MarvelApi {
     @GET("v1/public/characters")
     fun listCharacters(
+        @Query("offset") offset: Int = 0,
         @Query("orderBy") orderBy: String = Constants.ORDER_BY_NAME
     ): Observable<CharacterDataWrapper>
 }
