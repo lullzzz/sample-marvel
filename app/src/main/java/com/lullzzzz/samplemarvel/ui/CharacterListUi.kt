@@ -29,14 +29,17 @@ import com.bumptech.glide.request.transition.Transition
 import com.lullzzzz.samplemarvel.Attributes
 import com.lullzzzz.samplemarvel.ui.theme.Purple200
 import com.lullzzzz.samplemarvel.viewmodel.ComicCharacterViewModel
+import kotlinx.coroutines.launch
 
 @Composable
 fun MarvelCharacterList(
     navController: NavController,
     viewModel: ComicCharacterViewModel
 ) {
+    val scrollState = rememberScrollState()
+    val scope = rememberCoroutineScope()
     Column(
-        modifier = Modifier.verticalScroll(rememberScrollState())
+        modifier = Modifier.verticalScroll(scrollState)
     ) {
         val characterList = viewModel.characterList.observeAsState()
         // viewModel.detail.value = null
@@ -129,6 +132,9 @@ fun MarvelCharacterList(
                         .background(color = Color.Green),
                     onClick = {
                         viewModel.fetchPrevData()
+                        scope.launch {
+                            scrollState.scrollTo(0)
+                        }
                     }
                 ) {
                     Text(text = "Prev")
@@ -141,6 +147,9 @@ fun MarvelCharacterList(
                         .background(color = Color.Green),
                     onClick = {
                         viewModel.fetchNextData()
+                        scope.launch {
+                            scrollState.scrollTo(0)
+                        }
                     }
                 ) {
                     Text(text = "Next")
